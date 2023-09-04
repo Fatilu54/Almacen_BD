@@ -1,6 +1,4 @@
-CREATE DATABASE almacen__;
-
-USE almacen__;
+USE almacen;
 
 CREATE TABLE IF NOT EXISTS categoria (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
