@@ -30,8 +30,6 @@ productos_tree.heading("Precio", text="Precio")
 productos_tree.heading("Stock", text="Stock")
 productos_tree.pack()
 
-agregar_button = Button(ventana, text="Agregar Producto", command=agregar_producto)
-agregar_button.pack()
 
 ventana.mainloop()
 conn.close()
