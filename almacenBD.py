@@ -10,10 +10,6 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-ventana = Tk()
-ventana.title("Gestión de Almacén")
-
-
 def agregar_producto():
     productos_tree.delete(*productos_tree.get_children())
     cursor.execute('''''')
@@ -21,15 +17,28 @@ def agregar_producto():
     for row in resultados:
         productos_tree.insert("", "end", values=row)
 
+ventana = Tk()
+ventana.title("Gestión de Almacén")
+        
+label_titulo = Label(ventana, text="Almacen", font=("", 13), height=2, width=30, borderwidth=1,  relief = "raised", fg="black", bg= "white")
+label_titulo.pack(padx=10, pady=10)
+ventana.title("Almacen")
+ventana.resizable(0,0)
+ventana.config(bg= "OliveDrab1")
 
-productos_tree = ttk.Treeview(ventana, columns=("Producto", "Categoría", "Marca", "Precio", "Stock"), show="headings")
-productos_tree.heading("Producto", text="Producto")
-productos_tree.heading("Categoría", text="Categoría")
-productos_tree.heading("Marca", text="Marca")
-productos_tree.heading("Precio", text="Precio")
-productos_tree.heading("Stock", text="Stock")
-productos_tree.pack()
+tree = ttk.Treeview(ventana, columns=("Producto", "Categoria", "Marca", "Precio", "Stock"))
+tree.heading("#1", text="Producto") 
+tree.heading("#2", text="Categoria")
+tree.heading("#3", text="Marca")  
+tree.heading("#4", text="Precio")
+tree.heading("#5", text="Stok")
+tree.column("#0", width=0, stretch=NO) 
+tree.pack(padx=10, pady=10)
+
+cargar_button = Button(ventana, text="Cargar Datos", font= ("",9,'bold'), height=2, width=15, borderwidth=4,  relief = "raised", activebackground="green2",bg ='snow', command=cargar_datos)
+cargar_button.pack(padx=10,pady=10)
 
 
 ventana.mainloop()
-conn.close()
+
+conexion.close()
