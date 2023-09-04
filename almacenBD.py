@@ -10,12 +10,12 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-def agregar_producto():
-    productos_tree.delete(*productos_tree.get_children())
-    cursor.execute('''''')
-    resultados = cursor.fetchall()
-    for row in resultados:
-        productos_tree.insert("", "end", values=row)
+def cargar_productos():
+    tree.delete(*tree.get_children())
+    cursor = conexion.cursor()
+    cursor.execute("")
+    for row in cursor.fetchall():
+        tree.insert("", "end", values=row)
 
 ventana = Tk()
 ventana.title("Gestión de Almacén")
