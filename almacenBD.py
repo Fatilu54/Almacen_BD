@@ -35,7 +35,7 @@ tree.heading("#5", text="Stok")
 tree.column("#0", width=0, stretch=NO) 
 tree.pack(padx=10, pady=10)
 
-cargar_button = Button(ventana, text="Cargar Datos", font= ("",9,'bold'), height=2, width=15, borderwidth=4,  relief = "raised", activebackground="green2",bg ='snow', command=cargar_datos)
+cargar_button = Button(ventana, text="Cargar Datos", font= ("",9,'bold'), height=2, width=15, borderwidth=4,  relief = "raised", activebackground="green2",bg ='snow', command=cargar_productos)
 cargar_button.pack(padx=10,pady=10)
 
 
