@@ -13,25 +13,18 @@ cursor = conn.cursor()
 def cargar_productos():
     tree.delete(*tree.get_children())
     cursor = conexion.cursor()
-    cursor.execute("")
+    consultar = ("SELECT categoria.nombre, marca.nombre, producto.nombre FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria INNER JOIN marca ON producto.id_marca = marca.id_marca")
+    cursor.execute(consultar)
     for row in cursor.fetchall():
         tree.insert("", "end", values=row)
 
 ventana = Tk()
 ventana.title("Gestión de Almacén")
-        
-label_titulo = Label(ventana, text="Almacen", font=("", 13), height=2, width=30, borderwidth=1,  relief = "raised", fg="black", bg= "white")
-label_titulo.pack(padx=10, pady=10)
-ventana.title("Almacen")
-ventana.resizable(0,0)
-ventana.config(bg= "OliveDrab1")
 
-tree = ttk.Treeview(ventana, columns=("Producto", "Categoria", "Marca", "Precio", "Stock"))
-tree.heading("#1", text="Producto") 
-tree.heading("#2", text="Categoria")
-tree.heading("#3", text="Marca")  
-tree.heading("#4", text="Precio")
-tree.heading("#5", text="Stok")
+tree = ttk.Treeview(ventana, columns=("categoria", "marca","producto" )
+tree.heading("#1", text="Categoria")
+tree.heading("#2", text="Marca")  
+tree.heading("#3", text="Producto") 
 tree.column("#0", width=0, stretch=NO) 
 tree.pack(padx=10, pady=10)
 
